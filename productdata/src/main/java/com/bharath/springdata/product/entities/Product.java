@@ -1,5 +1,8 @@
 package com.bharath.springdata.product.entities;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 import java.io.Serializable;
 
 import javax.persistence.Column;
@@ -9,6 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
 public class Product implements Serializable {
 
 	private static final long serialVersionUID = 1L;

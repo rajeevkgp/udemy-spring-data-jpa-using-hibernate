@@ -1,13 +1,7 @@
 package com.bharath.springdata.product;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
-import java.util.Arrays;
-import java.util.List;
-
-import javax.persistence.EntityManager;
-
+import com.bharath.springdata.product.entities.Product;
+import com.bharath.springdata.product.repos.ProductRepository;
 import org.hibernate.Session;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,8 +14,12 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bharath.springdata.product.entities.Product;
-import com.bharath.springdata.product.repos.ProductRepository;
+import javax.persistence.EntityManager;
+import java.util.Arrays;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
