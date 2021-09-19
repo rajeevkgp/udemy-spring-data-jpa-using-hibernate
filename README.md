@@ -11,3 +11,12 @@ JPA Save call will check for existing id in the database, if its there it will n
 
 Hibernate uses caching to optimize query response time. It uses Level1 Cache at session level and level2 cache at session factory level. L1 cache is enabled by default. L2 cache is common across all the sessions. L1 cache is specific for any session. For enabling L2 cache we need to add caching providers e.g. ehcache.
 @Transactional is required for L1 cache to work, because internally it uses hibernate session and l1 cache is stored at session level. To check you can simply query two times and will see the enabled logs once. https://stackoverflow.com/questions/27879451/does-spring-transactional-use-any-hibernate-cache
+
+Id Generators, Generation Strategies
+AUTO - consult the underlying database for generation strategy, whatever the db is using 
+IDENTITY - Use auto increment ID column of table to generate, to use this you must set id as primary key auto_increment otherwise the error would be : The database returned no natively generated identity value
+SEQUENCE - get the latest id, increment and save
+TABLE - create a separate table in mysql for id generation, provide the details in the entity class
+We can create a custom id generation by creating a class and extending IdentifierGenerator
+
+Transaction Should be ACID
