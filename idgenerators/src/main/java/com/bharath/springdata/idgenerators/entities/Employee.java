@@ -1,19 +1,18 @@
 package com.bharath.springdata.idgenerators.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
+@Table(name = "employee")
 public class Employee {
 
 	//@TableGenerator(name = "employee_gen", table = "id_gen", pkColumnName = "gen_name", valueColumnName = "gen_val",allocationSize=100)
-	@GenericGenerator(name="emp_id",strategy="com.bharath.springdata.idgenerators.CustomRandomIDGenerator")
-	@GeneratedValue(generator="emp_id")
+//	@GenericGenerator(name="emp_id",strategy="com.bharath.springdata.idgenerators.CustomRandomIDGenerator")
+//	@GeneratedValue(generator="emp_id")
 	@Id
-	//@GeneratedValue(strategy = GenerationType.TABLE,generator="employee_gen")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String name;
 
